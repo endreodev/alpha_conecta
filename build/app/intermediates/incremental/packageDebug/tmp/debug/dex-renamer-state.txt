@@ -1,0 +1,4 @@
+#Mon Dec 12 23:21:45 AMT 2022
+base.0=C\:\\Users\\Endreo\\alpha_conecta\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
