@@ -2,7 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class DioServiceWs {
-  static const String _url = 'http://localhost:21465/rest';
+  static const String _url = 'http://localhost:21467/rest';
+  // static const String _url = 'http://45.174.195.28:21467/rest';
 
   static final Map<String, String> _mapHeaders = {
     'Content-Type': 'application/json; charset=UTF-8',

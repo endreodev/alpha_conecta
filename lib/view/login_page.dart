@@ -5,7 +5,12 @@ import 'package:provider/provider.dart';
 import '../components/imput_text_widget.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+  String msgError;
+
+  LoginPage({
+    super.key,
+    required this.msgError,
+  });
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -26,6 +31,18 @@ class _LoginPageState extends State<LoginPage> {
     usuarioAddressController = TextEditingController();
     passwordController = TextEditingController();
     passwordVisibility = false;
+
+    usuarioAddressController?.text = 'app';
+    passwordController?.text = 'app';
+
+    Future.delayed(Duration.zero, () {
+      if (widget.msgError.isNotEmpty) {
+        fwalert(cmsg: widget.msgError.toString(), ctx: context);
+      }
+    });
+    // if (widget.msgError != null) {
+
+    // }
   }
 
   @override
@@ -39,6 +56,7 @@ class _LoginPageState extends State<LoginPage> {
     await context.read<AuthService>().login(
           usuarioAddressController!.text,
           passwordController!.text,
+          context,
         );
   }
 
@@ -85,7 +103,8 @@ class _LoginPageState extends State<LoginPage> {
                   child: ElevatedButton(
                     onPressed: () {
                       if (oValform.onValideForm(context)) {
-                        //postLoginUser(context);
+                        FocusScope.of(context).requestFocus(FocusNode());
+
                         login();
                       } else {
                         //mostra popapi
@@ -113,6 +132,18 @@ class _LoginPageState extends State<LoginPage> {
               ],
             ),
           ),
+        ),
+      ),
+    );
+  }
+
+  void fwalert({required String cmsg, required BuildContext ctx}) {
+    ScaffoldMessenger.of(ctx).showSnackBar(
+      SnackBar(
+        backgroundColor: Colors.orange,
+        content: Text(
+          cmsg.toString().toUpperCase(),
+          textAlign: TextAlign.center,
         ),
       ),
     );

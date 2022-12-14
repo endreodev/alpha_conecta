@@ -3,7 +3,7 @@ import 'package:alpha_conecta/view/home_page.dart';
 import 'package:alpha_conecta/view/loanding_page.dart';
 import 'package:alpha_conecta/view/login_page.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart' show Provider;
+import 'package:provider/provider.dart';
 
 class AuthCheck extends StatefulWidget {
   const AuthCheck({super.key});
@@ -20,7 +20,11 @@ class _AuthCheckState extends State<AuthCheck> {
     if (auth.isloading) {
       return const LoadingPage();
     } else if (auth.usuario == null) {
-      return const LoginPage();
+      if (auth.msgError.isNotEmpty) {
+        return LoginPage(msgError: auth.msgError);
+      } else {
+        return LoginPage(msgError: '');
+      }
     } else {
       return const HomePage();
     }
