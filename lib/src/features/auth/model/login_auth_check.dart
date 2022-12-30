@@ -17,22 +17,8 @@ class LoginAuthCheck extends StatefulWidget {
 
 class _LoginAuthCheckState extends State<LoginAuthCheck> {
   _materialApp(lhome, mensagem) {
-    return !lhome
+    return lhome
         ? MaterialApp(
-            title: 'ALPHA CONECTA',
-            debugShowCheckedModeBanner: false,
-            navigatorKey: navigatiorKey,
-            theme: ThemeData(
-              useMaterial3: true,
-              fontFamily: 'Nasalisation-rg',
-              brightness: Brightness.light, // dark, tema claro e dark é escuro
-              primarySwatch:
-                  Colors.green, // Cor primaria barras bottoes onfocus
-              backgroundColor: Colors.greenAccent, // Cor de fundo
-            ),
-            home: LoginPageUser(msgError: mensagem),
-          )
-        : MaterialApp(
             title: 'ALPHA CONECTA',
             debugShowCheckedModeBanner: false,
             navigatorKey: navigatiorKey,
@@ -46,6 +32,20 @@ class _LoginAuthCheckState extends State<LoginAuthCheck> {
             ),
             initialRoute: '/',
             onGenerateRoute: RouterGenerator.generateRoute,
+          )
+        : MaterialApp(
+            title: 'ALPHA CONECTA',
+            debugShowCheckedModeBanner: false,
+            navigatorKey: navigatiorKey,
+            theme: ThemeData(
+              useMaterial3: true,
+              fontFamily: 'Nasalisation-rg',
+              brightness: Brightness.light, // dark, tema claro e dark é escuro
+              primarySwatch:
+                  Colors.green, // Cor primaria barras bottoes onfocus
+              backgroundColor: Colors.greenAccent, // Cor de fundo
+            ),
+            home: LoginPageUser(msgError: mensagem),
           );
   }
 

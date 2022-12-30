@@ -22,7 +22,7 @@ class ImputTextWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 50,
+      height: 55,
       width: MediaQuery.of(context).size.width - 30,
       child: TextFormField(
         controller: controller,
@@ -42,28 +42,28 @@ class ImputTextWidget extends StatelessWidget {
               color: Colors.grey,
               width: 2,
             ),
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(18),
           ),
           focusedBorder: OutlineInputBorder(
             borderSide: const BorderSide(
               color: Color(0xFFDBE2E7),
               width: 2,
             ),
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(18),
           ),
           errorBorder: OutlineInputBorder(
             borderSide: const BorderSide(
               color: Colors.red,
               width: 2,
             ),
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(18),
           ),
           focusedErrorBorder: OutlineInputBorder(
             borderSide: const BorderSide(
               color: Color(0x00000000),
               width: 2,
             ),
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(18),
           ),
           filled: true,
           fillColor: Colors.white,

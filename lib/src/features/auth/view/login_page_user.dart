@@ -70,80 +70,70 @@ class _LoginPageUserState extends State<LoginPageUser> {
       }
     });
 
-    return SingleChildScrollView(
-      child: Scaffold(
-          // body: Container(
-          //   color: const Color.fromARGB(255, 105, 160, 134),
-          //   child: Center(
-          //     child: Form(
-          //       key: oValform.formKey,
-          //       child: Column(
-          //         mainAxisAlignment: MainAxisAlignment.center,
-          //         children: [
-          //           const Text(
-          //             'Alpha',
-          //             style: TextStyle(
-          //               fontSize: 25,
-          //               fontWeight: FontWeight.bold,
-          //             ),
-          //           ),
-          //           SizedBox(
-          //             height: 60,
-          //             width: 200,
-          //             child: Image.asset('assets/images/logo.png'),
-          //           ),
-          //           const SizedBox(height: 25),
-          //           ImputTextWidget(
-          //             controller: usuarioAddressController,
-          //             ispsw: false,
-          //             obscureText: true,
-          //             label: "Usuario",
-          //             hint: "Usuario",
-          //             validator: oValform.validateUsuario,
-          //           ),
-          //           const SizedBox(height: 15),
-          //           ImputTextWidget(
-          //             controller: passwordController,
-          //             ispsw: true,
-          //             obscureText: false,
-          //             label: "Senha",
-          //             hint: "Senha",
-          //             validator: oValform.validateSenha,
-          //           ),
-          //           const SizedBox(height: 15),
-          //           Container(
-          //             margin: const EdgeInsets.all(18),
-          //             height: 60,
-          //             child: ElevatedButton(
-          //               onPressed: () {
-          //                 if (oValform.onValideForm(context)) {
-          //                   login();
-          //                 }
-          //               },
-          //               style: ElevatedButton.styleFrom(
-          //                 backgroundColor:
-          //                     const Color.fromARGB(255, 71, 157, 103),
-          //                 elevation: 10,
-          //               ),
-          //               child: Container(
-          //                 height: 60,
-          //                 alignment: Alignment.center,
-          //                 child: const Text(
-          //                   'ACESSAR',
-          //                   style: TextStyle(
-          //                     fontSize: 24,
-          //                     color: Colors.black,
-          //                   ),
-          //                 ),
-          //               ),
-          //             ),
-          //           ),
-          //         ],
-          //       ),
-          //     ),
-          //   ),
-          // ),
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Login'),
+      ),
+      body: Form(
+        key: oValform.formKey,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Center(
+              child: SizedBox(
+                height: 60,
+                width: 200,
+                child: Image.asset('assets/images/logo.png'),
+              ),
+            ),
+            const SizedBox(height: 25),
+            ImputTextWidget(
+              controller: usuarioAddressController,
+              ispsw: false,
+              obscureText: true,
+              label: "Usuario",
+              hint: "Usuario",
+              validator: oValform.validateUsuario,
+            ),
+            const SizedBox(height: 15),
+            ImputTextWidget(
+              controller: passwordController,
+              ispsw: true,
+              obscureText: false,
+              label: "Senha",
+              hint: "Senha",
+              validator: oValform.validateSenha,
+            ),
+            const SizedBox(height: 5),
+            Container(
+              margin: const EdgeInsets.all(18),
+              height: 60,
+              child: ElevatedButton(
+                onPressed: () {
+                  if (oValform.onValideForm(context)) {
+                    login();
+                  }
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 71, 157, 103),
+                  elevation: 10,
+                ),
+                child: Container(
+                  height: 60,
+                  alignment: Alignment.center,
+                  child: const Text(
+                    'ACESSAR',
+                    style: TextStyle(
+                      fontSize: 24,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
