@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ImputTextWidget extends StatelessWidget {
+class ImputTextWidget extends StatefulWidget {
   TextEditingController? controller;
   String? hint;
   bool ispsw;
@@ -20,22 +20,27 @@ class ImputTextWidget extends StatelessWidget {
   });
 
   @override
+  State<ImputTextWidget> createState() => _ImputTextWidgetState();
+}
+
+class _ImputTextWidgetState extends State<ImputTextWidget> {
+  @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 55,
       width: MediaQuery.of(context).size.width - 30,
       child: TextFormField(
-        controller: controller,
-        obscureText: !obscureText,
-        validator: validator,
+        controller: widget.controller,
+        obscureText: !widget.obscureText,
+        validator: widget.validator,
         decoration: InputDecoration(
-          labelText: label,
+          labelText: widget.label,
           labelStyle: const TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
             color: Colors.black,
           ),
-          hintText: hint,
+          hintText: widget.hint,
           hintStyle: const TextStyle(color: Colors.grey),
           enabledBorder: OutlineInputBorder(
             borderSide: const BorderSide(
@@ -68,14 +73,14 @@ class ImputTextWidget extends StatelessWidget {
           filled: true,
           fillColor: Colors.white,
           contentPadding: const EdgeInsetsDirectional.fromSTEB(16, 24, 0, 24),
-          suffixIcon: ispsw
+          suffixIcon: widget.ispsw
               ? InkWell(
                   onTap: () => setState(
-                    () => obscureText = !obscureText,
+                    () => widget.obscureText = !widget.obscureText,
                   ),
                   focusNode: FocusNode(skipTraversal: true),
                   child: Icon(
-                    obscureText
+                    widget.obscureText
                         ? Icons.visibility_outlined
                         : Icons.visibility_off_outlined,
                     color: Colors.black,
@@ -91,8 +96,4 @@ class ImputTextWidget extends StatelessWidget {
       ),
     );
   }
-}
-
-setState(bool Function() param0) {
-  setState(param0);
 }
