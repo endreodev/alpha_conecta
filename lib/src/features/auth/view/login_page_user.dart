@@ -54,37 +54,33 @@ class _LoginPageUserState extends State<LoginPageUser> {
   Widget build(BuildContext context) {
     Future.delayed(Duration.zero, () {
       if (widget.msgError.isNotEmpty) {
-        // ScaffoldMessenger.of(navigatiorKey.currentContext!)
-        //     .showSnackBar(SnackBar(
-        //   elevation: 50,
-        //   backgroundColor: Colors.amber,
-        //   content: Text(
-        //     widget.msgError.toString(),
-        //     style: const TextStyle(
-        //       color: Colors.black,
-        //       fontWeight: FontWeight.bold,
-        //     ),
-        //   ),
-        // ));
+        ScaffoldMessenger.of(navigatiorKey.currentContext!)
+            .showSnackBar(SnackBar(
+          elevation: 50,
+          backgroundColor: Colors.amber,
+          content: Text(
+            widget.msgError.toString(),
+            style: const TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ));
       }
     });
 
     return Scaffold(
-      appBar: AppBar(
-        elevation: 10,
-        title: const Text('Login'),
-      ),
       body: SingleChildScrollView(
         child: Form(
           key: oValform.formKey,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const SizedBox(height: 65),
+              const SizedBox(height: 120),
               Center(
                 child: SizedBox(
-                  height: 60,
-                  width: 200,
+                  height: 200,
+                  width: 400,
                   child: Image.asset('assets/images/logo.png'),
                 ),
               ),
@@ -117,14 +113,14 @@ class _LoginPageUserState extends State<LoginPageUser> {
                     }
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 71, 157, 103),
+                    backgroundColor: Colors.green.shade800,
                     elevation: 10,
                   ),
                   child: Container(
                     height: 60,
                     alignment: Alignment.center,
                     child: const Text(
-                      'ACESSAR',
+                      'Login',
                       style: TextStyle(
                         fontSize: 24,
                         color: Colors.black,

@@ -12,7 +12,7 @@ class _PageNotFolderState extends State<PageNotFolder> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Pagina não encontrada'),
+        title: const Text('404 - PAGINAL ENCONTRADA'),
       ),
       body: const Center(
         child: Text('404 - PAGINAL ENCONTRADA'),

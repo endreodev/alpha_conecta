@@ -11,22 +11,22 @@ class _LoadingPageState extends State<LoadingPage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'ALPHA CONECTA',
+      title: 'AGRO BAGGIO',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
         fontFamily: 'Nasalisation-rg',
-        brightness: Brightness.light, // dark, tema claro e dark é escuro
-        primarySwatch: Colors.green, // Cor primaria barras bottoes onfocus
-        backgroundColor: Colors.greenAccent, // Cor de fundo
+        brightness: Brightness.light,
+        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.green)
+            .copyWith(background: Colors.greenAccent),
       ),
       home: Scaffold(
         body: Container(
-          color: Colors.amber,
-          child: Center(
+          color: const Color.fromARGB(255, 34, 83, 46),
+          child: const Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
+              children: [
                 Text('Carregando'),
                 SizedBox(
                   height: 50,

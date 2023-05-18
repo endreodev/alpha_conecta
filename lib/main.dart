@@ -2,6 +2,7 @@ import 'package:alpha_conecta/src/features/auth/controller/authservicelogin.dart
 import 'package:alpha_conecta/src/features/auth/model/login_auth_check.dart';
 import 'package:alpha_conecta/src/features/carteira_de_vendas/controller/carteira_vendas_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 final navigatiorKey = GlobalKey<NavigatorState>();
@@ -16,4 +17,5 @@ void main() {
       child: const LoginAuthCheck(),
     ),
   );
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 }

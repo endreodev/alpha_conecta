@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:alpha_conecta/src/features/auth/controller/authservicelogin.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -17,42 +19,57 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
     AuthServiceLogin authService = Provider.of<AuthServiceLogin>(context);
 
     return Drawer(
-      child: Material(
-        // color: Colors.greenAccent[200], //const Color.fromRGBO(0, 170, 70, 70),
-        color: Theme.of(context).secondaryHeaderColor, //Colors.lightGreen[200],
-        child: ListView(
-          children: <Widget>[
-            buildHeader(
-                name: authService.usuario!.name.toString(),
-                onClicked: () => {}),
-            Container(
-              // color: Colors.black,
-              padding: padding,
-              child: Column(
-                children: [
-                  const SizedBox(height: 24),
-                  buildMenuItem(
-                    text: 'Carteira de Vendas',
-                    icon: Icons.library_add_check,
-                    onClicked: () => selectedItem(context, '/CarteiraFiltro'),
-                  ),
-                  // const SizedBox(height: 16),
-                  // buildMenuItem(
-                  //   text: 'Simulação',
-                  //   icon: Icons.calculate_outlined,
-                  //   onClicked: () => selectedItem(context, '/Simulacao'),
-                  // ),
-                  const SizedBox(height: 16),
-                  buildMenuItem(
-                    text: 'Sair',
-                    icon: Icons.exit_to_app,
-                    onClicked: () => logoff(),
-                  )
-                ],
-              ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          buildHeader(
+              name: "app" /*'authService.usuario!.name.toString()',*/,
+              onClicked: () => {}),
+          Container(
+            height: MediaQuery.of(context).size.height - 250,
+            // color: Colors.black,
+            padding: padding,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                const SizedBox(height: 10),
+                buildMenuItem(
+                  text: 'Carteira de Vendas',
+                  icon: Icons.library_add_check,
+                  onClicked: () => selectedItem(context, '/CarteiraFiltro'),
+                ),
+                const SizedBox(height: 10),
+                buildMenuItem(
+                  text: 'Rotina 1',
+                  icon: Icons.calculate_outlined,
+                  onClicked: () => selectedItem(context, '/Simulacao'),
+                ),
+                const SizedBox(height: 10),
+                buildMenuItem(
+                  text: 'Rotina 2',
+                  icon: Icons.calculate_outlined,
+                  onClicked: () => selectedItem(context, '/Simulacao'),
+                ),
+                const SizedBox(height: 10),
+                buildMenuItem(
+                  text: 'Rotina 3',
+                  icon: Icons.calculate_outlined,
+                  onClicked: () => selectedItem(context, '/Simulacao'),
+                ),
+                const SizedBox(height: 10),
+              ],
             ),
-          ],
-        ),
+          ),
+          SizedBox(
+            height: 60,
+            // color: Colors.red,
+            child: buildMenuItem(
+              text: 'Sair',
+              icon: Icons.exit_to_app,
+              onClicked: () => logoff(),
+            ),
+          )
+        ],
       ),
     );
   }
@@ -60,6 +77,7 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
   //função sair
   logoff() async {
     await context.read<AuthServiceLogin>().userlogoff();
+    selectedItem(context, '/Simulacao');
   }
 
   Widget buildHeader({
@@ -75,35 +93,39 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
               Row(
                 children: [
                   CircleAvatar(
-                      radius: (40),
-                      backgroundColor: Colors.white,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(50),
-                        // child: Image.asset('assets/imagens/logo.png'),
-                        child: const Icon(Icons.supervised_user_circle),
-                      )),
-                  const SizedBox(width: 20),
-                  const Spacer(),
-                ],
-              ),
-              const SizedBox(height: 20),
-              const SizedBox(
-                width: 400,
-                child: Text(
-                  'Usuario',
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                    fontSize: 14,
+                    radius: (40),
+                    backgroundColor: Theme.of(context).colorScheme.background,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.asset('assets/images/logo.png'),
+                      // child: const Icon(Icons.supervised_user_circle),
+                    ),
+                  ),
+                  Container(
+                    width: 1,
+                    height: 80,
+                    margin: const EdgeInsets.only(left: 5, right: 5),
                     color: Colors.black,
                   ),
-                ),
-              ),
-              SizedBox(
-                width: 400,
-                child: Text(
-                  name,
-                  style: const TextStyle(fontSize: 20, color: Colors.black),
-                ),
+                  SizedBox(
+                    width: 160,
+                    height: 80,
+                    // color: Colors.red,
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            name,
+                            style: const TextStyle(
+                                fontSize: 20, color: Colors.black),
+                          ),
+                          const Text(
+                            'Agro Baggio - App',
+                            style: TextStyle(fontSize: 12, color: Colors.black),
+                          ),
+                        ]),
+                  )
+                ],
               ),
             ],
           ),
@@ -115,13 +137,13 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
     required IconData icon,
     VoidCallback? onClicked,
   }) {
-    const color = Colors.black;
-    const hoverColor = Colors.white70;
+    const color = Colors.white;
+    const hoverColor = Colors.black;
 
     return Container(
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(8)),
-        color: Theme.of(context).primaryColorLight,
+        color: Theme.of(context).colorScheme.secondary,
       ),
       child: ListTile(
         leading: Icon(icon, color: color),

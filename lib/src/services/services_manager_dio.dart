@@ -2,8 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ServicesManagerDio {
-  static const String _baseUrl = 'http://localhost:21467/rest';
-  // static const String _baseUrl = 'http://45.174.195.28:21467/rest';
+  // static const String _baseUrl = 'http://localhost:21467/rest';
+  static const String _baseUrl = 'http://45.174.195.28:21467/rest';
 
   static final Map<String, String> _mapHeaders = {
     'Content-Type': 'application/json; charset=UTF-8',
@@ -17,8 +17,8 @@ class ServicesManagerDio {
 
   static final BaseOptions _options = BaseOptions(
     baseUrl: _baseUrl,
-    connectTimeout: 2000,
-    receiveTimeout: 2000,
+    connectTimeout: 6000,
+    receiveTimeout: 6000,
     headers: _mapHeaders,
   );
 

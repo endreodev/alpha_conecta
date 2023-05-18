@@ -13,11 +13,22 @@ class _InicialPageState extends State<InicialPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('ALPHA CONECTA'),
+        centerTitle: true,
+        title: const Text('Agro Baggio'),
         elevation: 30,
       ),
-      body: Container(
-        child: Text('inicial'),
+      body: Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            TextButton(onPressed: () {}, child: const Text('Rotina 1')),
+            TextButton(onPressed: () {}, child: const Text('Rotina 2')),
+            TextButton(onPressed: () {}, child: const Text('Rotina 3')),
+            TextButton(onPressed: () {}, child: const Text('Rotina 4')),
+            TextButton(onPressed: () {}, child: const Text('Rotina 5'))
+          ],
+        ),
       ),
       drawer: const NavigationDrawerWidget(),
     );

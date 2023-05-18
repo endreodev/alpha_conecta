@@ -27,7 +27,7 @@ class _ImputTextWidgetState extends State<ImputTextWidget> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 55,
+      height: 75,
       width: MediaQuery.of(context).size.width - 30,
       child: TextFormField(
         controller: widget.controller,
@@ -57,6 +57,7 @@ class _ImputTextWidgetState extends State<ImputTextWidget> {
             borderRadius: BorderRadius.circular(18),
           ),
           errorBorder: OutlineInputBorder(
+            gapPadding: 10,
             borderSide: const BorderSide(
               color: Colors.red,
               width: 2,

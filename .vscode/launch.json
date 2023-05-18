@@ -10,6 +10,12 @@
 			"smartclientBin": "../totvs/bin/smartclient/smartclient.exe",
 			"isMultiSession": true,
 			"enableTableSync": true
+		},
+		{
+			"name": "Flutter (lib\\src\\features\\auth\\view\\login_page_user.dart)",
+			"type": "dart",
+			"request": "launch",
+			"program": "lib\\src\\features\\auth\\view\\login_page_user.dart"
 		}
 	],
 	"lastPrograms": [],

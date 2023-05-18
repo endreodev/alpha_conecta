@@ -62,6 +62,6 @@ class CarteiraVendasService extends ChangeNotifier {
     mapCarteiraVendas = <CarteiraVendasModel>[];
     msgerror = '';
     isloading = false;
-    notifyListeners();
+    // notifyListeners();
   }
 }

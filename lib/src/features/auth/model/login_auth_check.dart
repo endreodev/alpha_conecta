@@ -17,31 +17,25 @@ class _LoginAuthCheckState extends State<LoginAuthCheck> {
   _materialApp(lhome, mensagem) {
     return lhome
         ? MaterialApp(
-            title: 'ALPHA CONECTA',
             debugShowCheckedModeBanner: false,
             navigatorKey: navigatiorKey,
             theme: ThemeData(
               useMaterial3: true,
-              fontFamily: 'Nasalisation-rg',
-              brightness: Brightness.light, // dark, tema claro e dark é escuro
-              primarySwatch:
-                  Colors.green, // Cor primaria barras bottoes onfocus
-              backgroundColor: Colors.greenAccent, // Cor de fundo
+              colorScheme: ColorScheme.fromSeed(
+                seedColor: Colors.green.shade800,
+              ),
             ),
             initialRoute: '/',
             onGenerateRoute: RouterGenerator.generateRoute,
           )
         : MaterialApp(
-            title: 'ALPHA CONECTA',
             debugShowCheckedModeBanner: false,
             navigatorKey: navigatiorKey,
             theme: ThemeData(
-              useMaterial3: true,
               fontFamily: 'Nasalisation-rg',
-              brightness: Brightness.light, // dark, tema claro e dark é escuro
-              primarySwatch:
-                  Colors.green, // Cor primaria barras bottoes onfocus
-              backgroundColor: Colors.greenAccent, // Cor de fundo
+              colorScheme: ColorScheme.fromSeed(
+                seedColor: Colors.green.shade800,
+              ), // Cor de fundo
             ),
             home: LoginPageUser(msgError: mensagem),
           );
@@ -50,8 +44,6 @@ class _LoginAuthCheckState extends State<LoginAuthCheck> {
   @override
   Widget build(BuildContext context) {
     AuthServiceLogin authService = Provider.of<AuthServiceLogin>(context);
-
-    print(authService.isloading);
 
     if (authService.isloading) {
       return const LoadingPage();
